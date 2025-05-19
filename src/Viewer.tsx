@@ -204,7 +204,11 @@ export default function Viewer() {
           {primitives.map((prim) => (
             <mesh
               key={prim.id}
-              position={[prim.position[0], (prim.height / 2) || 0.5, prim.position[2]]}
+              position={[
+                prim.position[0],
+                prim.type === 'box' ? (prim.height / 2) : 0,
+                prim.position[2]
+              ]}
               // scale={prim.selected ? [1.2, 1.2, 1.2] : [1, 1, 1]}
               castShadow
               receiveShadow
